@@ -1,0 +1,30 @@
+version: 1.0.{build}
+skip_tags: true
+configuration: Release
+platform: Any CPU
+assembly_info:
+  patch: true
+  file: '**\AssemblyInfo.*'
+  assembly_version: '{version}'
+  assembly_file_version: '{version}'
+  assembly_informational_version: '{version}'
+nuget:
+  disable_publish_on_pr: true
+before_build:
+- ps: >-
+    nuget restore
+build:
+  project: SilverlightUnitTestAdapter.Plugin.sln
+  verbosity: quiet
+after_build:
+- cmd: nuget pack .\SilverlightUnitTestAdapter.Plugin.nuspec -Prop version=%APPVEYOR_BUILD_VERSION% -Prop configuration=%CONFIGURATION%
+artifacts:
+- path: SilverlightUnitTestAdapter.Plugin.*.nupkg
+  name: NuGet Package
+deploy:
+- provider: NuGet
+  api_key:
+    secure: 5S/6ubn56Tpm4OvzdTc3EpbJPQD9uTbgvIjZSHJsGt/e3k/RhNzVOzdV/SUr/9sO
+  artifact: NuGet Package
+  on:
+    branch: master
