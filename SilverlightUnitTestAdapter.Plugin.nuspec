@@ -8,10 +8,10 @@
         <owners>Rami Abughazaleh</owners>
         <projectUrl>https://github.com/icnocop/SilverlightUnitTestAdapter/</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>Visual Studio 2015 Unit Test Adapter for Silverlight 5 Plugin</description>
-        <summary>Create plugins for the Visual Studio 2015 Unit Test Adapter for Silverlight 5</summary>
+        <description>Visual Studio Unit Test Adapter for Silverlight 5 Plugin</description>
+        <summary>Create plugins for the Visual Studio Unit Test Adapter for Silverlight 5</summary>
         <copyright>Copyright 2018 by Rami Abughazaleh</copyright>
-        <tags>visual studio 2015 unit test adapter silverlight plugin</tags>
+        <tags>visual studio unit test adapter silverlight plugin</tags>
     </metadata>
     <files>
         <file src="bin\$configuration$\*" exclude="**\*.tmp" target="lib\net45\" />
